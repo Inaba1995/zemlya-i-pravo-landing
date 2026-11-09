@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Юрист по земельным спорам и недвижимости | «Земля и Право»</title>
+<meta name="description" content="Узкопрофильные юристы по земельным спорам, сделкам с недвижимостью и сопровождению строительства. Бесплатный разбор ситуации за 20 минут. Фиксированная цена. Работаем с 2014 года.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #14213d;
+    --navy-2: #1c2d52;
+    --paper: #f6f4ef;
+    --stone: #ebe7de;
+    --gold: #b08d57;
+    --gold-light: #d8bd8c;
+    --ink: #1d2433;
+    --muted: #6b7384;
+    --line: rgba(20, 33, 61, .12);
+    --radius: 18px;
+    --shadow: 0 25px 60px -28px rgba(20, 33, 61, .35);
+    --serif: "Playfair Display", Georgia, serif;
+    --sans: "Manrope", system-ui, -apple-system, sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); color: var(--ink); background: var(--paper); line-height: 1.6; overflow-x: hidden; }
+  a { color: inherit; text-decoration: none; }
+  section { position: relative; padding: 120px 24px; }
+  .container { max-width: 1140px; margin: 0 auto; }
+
+  h1, h2, h3 { font-family: var(--serif); font-weight: 500; line-height: 1.15; }
+  h1 { font-size: clamp(2.3rem, 4.6vw, 3.9rem); }
+  h2 { font-size: clamp(2rem, 3.8vw, 3rem); margin-bottom: 20px; }
+  h3 { font-size: 1.4rem; margin-bottom: 10px; }
+  .eyebrow { display: inline-block; font-size: .78rem; letter-spacing: .24em; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; font-weight: 600; }
+  .lead { font-size: 1.08rem; color: var(--muted); max-width: 640px; }
+  .center { text-align: center; }
+  .center .lead { margin: 0 auto; }
+
+  /* ---------- Кнопки ---------- */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    padding: 20px 38px; border-radius: 12px;
+    font-family: var(--sans); font-size: 1.05rem; font-weight: 600;
+    background: var(--gold); color: var(--navy);
+    border: none; cursor: pointer;
+    box-shadow: 0 16px 34px -16px rgba(176, 141, 87, .8);
+    transition: transform .35s ease, background .35s ease, box-shadow .35s ease, color .35s;
+  }
+  .btn:hover { background: var(--gold-light); transform: translateY(-3px) scale(1.02); box-shadow: 0 24px 40px -16px rgba(176,141,87,.9); }
+  .btn-dark { background: var(--navy); color: #fff; box-shadow: 0 16px 34px -16px rgba(20,33,61,.8); }
+  .btn-dark:hover { background: var(--navy-2); }
+  .btn-ghost { background: transparent; color: var(--navy); border: 1.5px solid var(--navy); box-shadow: none; padding: 14px 26px; font-size: .95rem; }
+  .btn-ghost:hover { background: var(--navy); color: #fff; box-shadow: none; }
+  .micro { font-size: .85rem; color: var(--muted); margin-top: 14px; }
+  .on-dark .micro { color: #aab3c7; }
+
+  /* ---------- Анимации появления ---------- */
+  .reveal { opacity: 0; transform: translateY(40px); transition: opacity 1s cubic-bezier(.2,.7,.2,1), transform 1s cubic-bezier(.2,.7,.2,1); }
+  .reveal.from-left { transform: translateX(-50px); }
+  .reveal.from-right { transform: translateX(50px); }
+  .reveal.in { opacity: 1; transform: none; }
+  .d1 { transition-delay: .12s; }
+  .d2 { transition-delay: .24s; }
+  .d3 { transition-delay: .36s; }
+
+  /* ---------- Шапка ---------- */
+  header { position: fixed; top: 0; left: 0; right: 0; z-index: 50; padding: 20px 24px; transition: background .4s, box-shadow .4s, padding .4s, color .4s; color: #fff; }
+  header.scrolled { background: rgba(20,33,61,.94); backdrop-filter: blur(14px); box-shadow: 0 10px 30px -20px rgba(0,0,0,.5); padding: 14px 24px; }
+  .nav { display: flex; align-items: center; justify-content: space-between; max-width: 1140px; margin: 0 auto; }
+  .logo { font-family: var(--serif); font-size: 1.3rem; font-weight: 600; letter-spacing: .02em; }
+  .logo span { color: var(--gold-light); }
+  .nav-links { display: flex; gap: 30px; font-size: .9rem; }
+  .nav-links a { position: relative; opacity: .9; }
+  .nav-links a::after { content: ""; position: absolute; left: 0; bottom: -4px; width: 0; height: 1px; background: var(--gold-light); transition: width .4s ease; }
+  .nav-links a:hover::after { width: 100%; }
+  .nav-cta { padding: 12px 22px; font-size: .9rem; border-radius: 10px; color: #fff; border-color: var(--gold-light); }
+  .nav-cta:hover { background: var(--gold-light); color: var(--navy); }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    min-height: 100vh; padding-top: 150px; display: flex; align-items: center; overflow: hidden;
+    background: linear-gradient(135deg, var(--navy) 0%, #0d1830 100%);
+    color: #fff;
+  }
+  .hero .eyebrow { color: var(--gold-light); }
+  .hero h1 em { color: var(--gold-light); font-style: italic; }
+  .hero .lead { color: #c5cde0; margin: 26px 0 40px; font-size: 1.12rem; }
+  .hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 60px; align-items: center; }
+  .trust { display: flex; gap: 40px; margin-top: 46px; flex-wrap: wrap; }
+  .trust div { font-size: .88rem; color: #aab3c7; }
+  .trust b { display: block; font-family: var(--serif); font-size: 2rem; color: #fff; font-weight: 500; }
+  .hero-panel {
+    background: rgba(255,255,255,.04); border: 1px solid rgba(216,189,140,.25);
+    border-radius: 24px; padding: 40px; position: relative;
+    box-shadow: 0 40px 80px -40px rgba(0,0,0,.6);
+    will-change: transform;
+  }
+  .hero-panel h3 { color: #fff; font-size: 1.5rem; }
+  .hero-panel ul { list-style: none; margin: 22px 0 28px; display: grid; gap: 14px; color: #d0d7e6; font-size: .97rem; }
+  .hero-panel li::before { content: "✓  "; color: var(--gold-light); font-weight: 700; }
+  .hero-panel .btn { width: 100%; }
+  .map-lines { position: absolute; inset: 0; pointer-events: none; overflow: hidden; border-radius: 24px; opacity: .25; }
+  .map-lines svg { position: absolute; width: 140%; left: -20%; top: 10%; }
+  .blob { position: absolute; border-radius: 50%; background: var(--gold); opacity: .12; filter: blur(80px); z-index: 0; will-change: transform; }
+  .hero > .container { position: relative; z-index: 1; }
+
+  /* ---------- Боли ---------- */
+  .pains { background: var(--paper); }
+  .pain-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-top: 60px; }
+  .pain {
+    background: #fff; border-radius: var(--radius); padding: 40px 34px;
+    border: 1px solid var(--line);
+    transition: transform .5s ease, box-shadow .5s ease, border-color .5s;
+  }
+  .pain:hover { transform: translateY(-8px); box-shadow: var(--shadow); border-color: var(--gold-light); }
+  .pain .num { font-family: var(--serif); font-size: 2.6rem; color: var(--gold); line-height: 1; margin-bottom: 18px; }
+  .pain p { color: var(--ink); font-size: 1.02rem; }
+
+  /* ---------- Решение ---------- */
+  .solution { background: var(--stone); overflow: hidden; }
+  .sol-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .sol-list { list-style: none; display: grid; gap: 22px; margin-top: 30px; }
+  .sol-list li {
+    display: flex; gap: 20px; padding: 26px; background: rgba(255,255,255,.7);
+    border-radius: var(--radius); transition: transform .4s ease, background .4s, box-shadow .4s;
+  }
+  .sol-list li:hover { transform: translateX(10px); background: #fff; box-shadow: var(--shadow); }
+  .sol-list .ic { flex: 0 0 46px; height: 46px; border-radius: 12px; background: var(--navy); color: var(--gold-light); display: grid; place-items: center; font-size: 1.2rem; }
+  .sol-list b { display: block; margin-bottom: 4px; font-weight: 600; }
+  .sol-list p { color: var(--muted); font-size: .98rem; }
+  .sol-visual {
+    aspect-ratio: 1 / 1.05; border-radius: 28px; position: relative; overflow: hidden;
+    background: linear-gradient(160deg, #24375f, var(--navy));
+    box-shadow: var(--shadow);
+  }
+  .sol-visual .plot {
+    position: absolute; border: 2px dashed rgba(216,189,140,.6); border-radius: 6px;
+    transition: transform .8s ease;
+  }
+  .sol-visual:hover .plot { transform: scale(1.03); }
+  .sol-visual .plot.p1 { left: 12%; top: 16%; width: 52%; height: 38%; }
+  .sol-visual .plot.p2 { left: 40%; top: 40%; width: 46%; height: 40%; border-color: rgba(255,255,255,.35); }
+  .sol-visual .tag {
+    position: absolute; left: 24px; bottom: 24px; right: 24px;
+    background: #fff; color: var(--navy); border-radius: 16px; padding: 18px 22px;
+    font-size: .92rem; box-shadow: 0 20px 40px -20px rgba(0,0,0,.5);
+  }
+  .sol-visual .tag strong { display: block; font-family: var(--serif); font-size: 1.3rem; color: var(--gold); font-weight: 600; }
+
+  /* ---------- Направления ---------- */
+  .areas-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-top: 60px; }
+  .area {
+    position: relative; overflow: hidden; background: var(--navy); color: #fff;
+    border-radius: var(--radius); padding: 44px 36px; min-height: 300px;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    transition: transform .5s cubic-bezier(.2,.7,.2,1), box-shadow .5s;
+  }
+  .area::before {
+    content: ""; position: absolute; inset: -20%; background: radial-gradient(circle at 80% 10%, rgba(216,189,140,.25), transparent 60%);
+    transition: transform .8s ease; z-index: 0;
+  }
+  .area:hover { transform: translateY(-10px); box-shadow: var(--shadow); }
+  .area:hover::before { transform: scale(1.15) translate(-5%, 5%); }
+  .area > * { position: relative; z-index: 1; }
+  .area .ico { font-size: 2rem; margin-bottom: auto; padding-bottom: 20px; }
+  .area h3 { color: #fff; }
+  .area p { color: #b9c3d9; font-size: .97rem; }
+
+  /* ---------- Оффер ---------- */
+  .offer { background: var(--navy); color: #fff; overflow: hidden; }
+  .offer .eyebrow { color: var(--gold-light); }
+  .offer h2 { color: #fff; }
+  .offer .lead { color: #aab3c7; }
+  .offer-box {
+    background: linear-gradient(160deg, rgba(255,255,255,.07), rgba(255,255,255,.02));
+    border: 1px solid rgba(216,189,140,.3); border-radius: 28px; padding: 60px;
+    display: grid; grid-template-columns: 1.1fr .9fr; gap: 60px; align-items: center;
+    box-shadow: 0 40px 80px -40px rgba(0,0,0,.6);
+  }
+  .offer-list { list-style: none; display: grid; gap: 16px; margin: 26px 0 0; font-size: 1.02rem; color: #e1e6f0; }
+  .offer-list li::before { content: "— "; color: var(--gold-light); }
+  .price { text-align: center; }
+  .price .big { font-family: var(--serif); font-size: 4rem; font-weight: 500; color: var(--gold-light); line-height: 1; }
+  .price p { color: #aab3c7; font-size: .95rem; margin: 12px 0 30px; }
+  .price .btn { width: 100%; }
+  .urgency { margin-top: 26px; font-size: .92rem; color: #d0d7e6; border-left: 3px solid var(--gold); padding-left: 14px; text-align: left; }
+
+  /* ---------- Форма ---------- */
+  .contact { background: var(--paper); }
+  .contact-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 70px; align-items: start; }
+  .contact-info { margin-top: 30px; display: grid; gap: 14px; font-size: 1rem; color: var(--muted); }
+  .contact-info b { color: var(--ink); font-weight: 600; }
+  .form-card { background: #fff; border-radius: 26px; padding: 50px; box-shadow: var(--shadow); border: 1px solid var(--line); }
+  .form-card h3 { font-size: 1.7rem; margin-bottom: 8px; }
+  .form-card > p { color: var(--muted); margin-bottom: 28px; }
+  .form { display: grid; gap: 18px; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .field label { display: block; font-size: .88rem; color: var(--navy); margin-bottom: 8px; font-weight: 600; }
+  .field input, .field select, .field textarea {
+    width: 100%; padding: 16px 18px; font: inherit; font-size: 1rem; color: var(--ink);
+    border: 1.5px solid #dcd6c9; border-radius: 12px; background: var(--paper);
+    transition: border-color .3s, box-shadow .3s, background .3s; appearance: none;
+  }
+  .field select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2314213d' fill='none' stroke-width='1.5'/%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-position: right 18px center;
+  }
+  .field textarea { resize: vertical; min-height: 96px; }
+  .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--gold); background: #fff; box-shadow: 0 0 0 4px rgba(176,141,87,.15); }
+  .field.error input, .field.error select { border-color: #b8432f; }
+  .error-text { display: none; color: #b8432f; font-size: .83rem; margin-top: 6px; }
+  .field.error .error-text { display: block; }
+  .consent { display: flex; gap: 12px; align-items: flex-start; font-size: .86rem; color: var(--muted); }
+  .consent input { margin-top: 4px; width: 18px; height: 18px; accent-color: var(--navy); flex: 0 0 auto; }
+  .consent a { color: var(--navy); text-decoration: underline; }
+  .form .btn { width: 100%; }
+  .form-done { display: none; text-align: center; padding: 30px 0; }
+  .form-card.sent .form { display: none; }
+  .form-card.sent .form-done { display: block; }
+  .form-card.sent > p, .form-card.sent h3 { display: none; }
+
+  /* ---------- Футер ---------- */
+  footer { background: #0d1830; color: #8e99b3; padding: 50px 24px; font-size: .82rem; }
+  footer .container { display: grid; gap: 14px; }
+  footer a { text-decoration: underline; }
+  .disclaimer { opacity: .75; max-width: 900px; }
+
+  /* ---------- Адаптив ---------- */
+  @media (max-width: 960px) {
+    section { padding: 90px 22px; }
+    .hero-grid, .sol-grid, .contact-grid, .offer-box { grid-template-columns: 1fr; gap: 40px; }
+    .pain-cards, .areas-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .row { grid-template-columns: 1fr; }
+    .form-card, .offer-box { padding: 36px 26px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .reveal { opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<header id="top">
+  <nav class="nav">
+    <a href="#top" class="logo">Земля <span>и</span> Право</a>
+    <div class="nav-links">
+      <a href="#pains">Ситуация</a>
+      <a href="#solution">Как мы работаем</a>
+      <a href="#areas">Направления</a>
+      <a href="#offer">Разбор</a>
+      <a href="#contact">Контакты</a>
+    </div>
+    <a href="#contact" class="btn btn-ghost nav-cta" data-goal="click_header_cta">Бесплатный разбор</a>
+  </nav>
+</header>
+
+<!-- Hero -->
+<section class="hero on-dark" id="hero">
+  <div class="blob" data-speed="-0.15" style="width:460px;height:460px;top:-80px;right:-120px;"></div>
+  <div class="blob" data-speed="0.18" style="width:340px;height:340px;bottom:-60px;left:-100px;"></div>
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow reveal">Земельные споры · недвижимость · строительство</span>
+      <h1 class="reveal d1">Вашу землю хотят отобрать, перекроить или признать самостроем? <em>Разберём ситуацию за 20 минут — бесплатно.</em></h1>
+      <p class="lead reveal d2">Юристы, которые занимаются только земельными спорами, сделками с недвижимостью и строительством. Без обязательств и без пустых обещаний.</p>
+      <div class="reveal d3">
+        <a href="#contact" class="btn" data-goal="click_hero_cta">Записаться на бесплатный разбор</a>
+        <p class="micro">Перезвоним в течение 30 минут в рабочее время. Никакого спама — только по вашему делу.</p>
+      </div>
+      <div class="trust reveal d3">
+        <div><b>с 2014</b>работаем на рынке</div>
+        <div><b>7</b>узких специалистов</div>
+        <div><b>400+</b>дел по земле</div>
+      </div>
+    </div>
+    <div class="hero-panel reveal from-right d1" data-speed="-0.04">
+      <div class="map-lines">
+        <svg viewBox="0 0 600 500" fill="none" stroke="#d8bd8c" stroke-width="1">
+          <path d="M0 120 L200 80 L380 140 L600 90"/><path d="M0 220 L220 190 L400 250 L600 200"/>
+          <path d="M0 330 L180 300 L360 350 L600 310"/><path d="M120 0 L160 500"/><path d="M380 0 L400 500"/>
+        </svg>
+      </div>
+      <h3>Что будет на разборе</h3>
+      <ul>
+        <li>Правовая квалификация вашей ситуации</li>
+        <li>Оценка шансов в процентах</li>
+        <li>Пошаговый план действий</li>
+        <li>Если дело проигрышное, скажем это прямо</li>
+      </ul>
+      <a href="#contact" class="btn" data-goal="click_hero_panel">Получить разбор</a>
+      <p class="micro">Без обязательств продолжать работу</p>
+    </div>
+  </div>
+</section>
+
+<!-- Боли -->
+<section class="pains" id="pains">
+  <div class="container">
+    <div class="center">
+      <span class="eyebrow reveal">Знакомо?</span>
+      <h2 class="reveal d1">С чем к нам приходят</h2>
+    </div>
+    <div class="pain-cards">
+      <article class="pain reveal d1">
+        <div class="num">01</div>
+        <p>Пришло уведомление, иск или постановление. Непонятно, что делать, а времени мало. В земельных спорах пропущенный срок может стоить дела.</p>
+      </article>
+      <article class="pain reveal d2">
+        <div class="num">02</div>
+        <p>Боитесь обратиться к юристу широкого профиля, который вчера вёл развод, а сегодня берётся за земельный спор. Нужна именно специфика.</p>
+      </article>
+      <article class="pain reveal d3">
+        <div class="num">03</div>
+        <p>Уже платили за консультации, где вам пересказали ваши же документы. Хочется услышать конкретный план и честную оценку шансов.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Решение -->
+<section class="solution" id="solution">
+  <div class="container sol-grid">
+    <div>
+      <span class="eyebrow reveal">Как мы работаем</span>
+      <h2 class="reveal d1">Один узкий специалист. Понятный план. Фиксированная цена.</h2>
+      <ul class="sol-list">
+        <li class="reveal d1">
+          <div class="ic">⚖</div>
+          <div><b>Юрист, который знает именно вашу тему</b><p>Вы общаетесь с юристом, который ведёт только земельные и строительные дела. Знает практику местных судов, Росреестра и администраций.</p></div>
+        </li>
+        <li class="reveal d2">
+          <div class="ic">₽</div>
+          <div><b>Смета вместо «по факту»</b><p>После разбора вы получаете фиксированную стоимость ведения дела. Цена не меняется в процессе.</p></div>
+        </li>
+        <li class="reveal d3">
+          <div class="ic">✎</div>
+          <div><b>Честная оценка с первой встречи</b><p>Если дело проигрышное, мы скажем об этом на разборе и не возьмём деньги за работу, которая не даст результата.</p></div>
+        </li>
+      </ul>
+    </div>
+    <div class="sol-visual reveal from-right d1" data-speed="-0.03">
+      <div class="plot p1"></div>
+      <div class="plot p2"></div>
+      <div class="tag">
+        <strong>Оценка шансов в %</strong>
+        Видите картину целиком до того, как потратите первый рубль.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Направления -->
+<section id="areas">
+  <div class="container">
+    <div class="center">
+      <span class="eyebrow reveal">Направления</span>
+      <h2 class="reveal d1">Только земля, недвижимость и стройка</h2>
+      <p class="lead reveal d2">Мы не занимаемся уголовными делами, разводами и ДТП. Концентрация на одной области даёт глубину практики.</p>
+    </div>
+    <div class="areas-grid">
+      <article class="area reveal d1">
+        <div class="ico">🏡</div>
+        <h3>Собственники земли и домов</h3>
+        <p>Границы участков, сервитуты, снос самостроя, оспаривание кадастровой стоимости.</p>
+      </article>
+      <article class="area reveal d2">
+        <div class="ico">🏗</div>
+        <h3>Застройщики и девелоперы</h3>
+        <p>ВРИ, перевод земель, согласования, споры с подрядчиками и сопровождение строительства.</p>
+      </article>
+      <article class="area reveal d3">
+        <div class="ico">🌾</div>
+        <h3>Сельхозземли и инвесторы</h3>
+        <p>Изменение категорий, аренда, выкуп земель, проверка прав перед сделкой.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Оффер -->
+<section class="offer" id="offer">
+  <div class="container">
+    <div class="offer-box reveal">
+      <div>
+        <span class="eyebrow">Оффер</span>
+        <h2>Бесплатный первичный разбор вашей ситуации</h2>
+        <p class="lead">20 минут с юристом, который занимается вашей темой. После разбора станет понятно, что делать дальше и стоит ли продолжать.</p>
+        <ul class="offer-list">
+          <li>Юрист узкой специализации</li>
+          <li>Оценка шансов в процентах</li>
+          <li>Пошаговый план действий</li>
+          <li>Без обязательств продолжать работу</li>
+        </ul>
+      </div>
+      <div class="price">
+        <div class="big">0 ₽</div>
+        <p>первичный разбор, 20 минут</p>
+        <a href="#contact" class="btn" data-goal="click_offer_cta">Записаться на разбор</a>
+        <p class="urgency">В земельных спорах сроки идут на дни. Пропущенный срок на ответ по иску может стоить дела, поэтому лучше не откладывать.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Форма -->
+<section class="contact" id="contact">
+  <div class="container contact-grid">
+    <div class="reveal from-left">
+      <span class="eyebrow">Контакты</span>
+      <h2>Опишите ситуацию, мы свяжемся</h2>
+      <p class="lead">Заполните короткую форму. Мы перезвоним в рабочее время и подскажем, с чего начать.</p>
+      <div class="contact-info">
+        <div><b>Телефон:</b> <a href="tel:+70000000000" data-goal="click_phone">+7 (000) 000-00-00</a></div>
+        <div><b>Telegram:</b> <a href="https://t.me/zemlya_pravo" target="_blank" rel="noopener" data-goal="click_telegram">@zemlya_pravo</a></div>
+        <div><b>Адрес:</b> [город, улица, офис]</div>
+        <div><b>Часы работы:</b> пн–пт, 10:00–19:00</div>
+      </div>
+    </div>
+
+    <div class="form-card reveal from-right d1" id="formCard">
+      <h3>Записаться на разбор</h3>
+      <p>Ответим в рабочее время. Информация остаётся конфиденциальной.</p>
+      <form class="form" id="leadForm" novalidate>
+        <div class="row">
+          <div class="field" id="fName">
+            <label for="name">Ваше имя</label>
+            <input type="text" id="name" autocomplete="name" maxlength="60" placeholder="Например, Андрей">
+            <div class="error-text">Укажите имя</div>
+          </div>
+          <div class="field" id="fPhone">
+            <label for="phone">Телефон</label>
+            <input type="tel" id="phone" autocomplete="tel" placeholder="+7 (___) ___-__-__">
+            <div class="error-text">Укажите телефон для связи</div>
+          </div>
+        </div>
+        <div class="field" id="fTopic">
+          <label for="topic">Тема</label>
+          <select id="topic">
+            <option value="">Выберите тему</option>
+            <option value="Границы и сервитуты">Границы участка и сервитуты</option>
+            <option value="Самострой и снос">Самострой и снос</option>
+            <option value="Кадастровая стоимость">Оспаривание кадастровой стоимости</option>
+            <option value="Строительство и ВРИ">Строительство, ВРИ, согласования</option>
+            <option value="Сельхозземли">Сельхозземли и категории</option>
+            <option value="Сделка с недвижимостью">Проверка сделки с недвижимостью</option>
+            <option value="Другое">Другое</option>
+          </select>
+          <div class="error-text">Выберите тему</div>
+        </div>
+        <div class="field">
+          <label for="comment">Кратко о ситуации (необязательно)</label>
+          <textarea id="comment" maxlength="500" placeholder="Например, получили уведомление о сносе, срок ответа — 10 дней"></textarea>
+        </div>
+        <label class="consent" id="fConsent">
+          <input type="checkbox" id="consent">
+          <span>Согласен на обработку персональных данных в соответствии с <a href="#" target="_blank" rel="noopener">Политикой обработки ПДн</a>.</span>
+        </label>
+        <div class="error-text" id="consentError" style="display:none;">Нужно согласие на обработку данных</div>
+        <button type="submit" class="btn btn-dark" data-goal="submit_lead">Получить бесплатный разбор</button>
+        <p class="micro" style="text-align:center;">Перезвоним в течение 30 минут в рабочее время</p>
+      </form>
+      <div class="form-done">
+        <h3>Заявка принята</h3>
+        <p class="lead" style="margin:14px auto 0;">Юрист свяжется с вами в рабочее время. Если срок ответа уже идёт, позвоните нам сразу.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p><b>ООО «Земля и Право»</b> · ИНН [__________] · ОГРН [__________]</p>
+    <p>Юридическая помощь оказывается на основании договора. Информация на сайте носит ознакомительный характер и не является публичной офертой или юридической консультацией.</p>
+    <p class="disclaimer">Результаты предыдущих дел не гарантируют аналогичный результат в вашем деле. <a href="#">Политика обработки ПДн</a></p>
+  </div>
+</footer>
+
+<script>
+  const CONFIG = {
+    // URL веб-приложения Apps Script для заявок (оставьте пустым, если не нужно)
+    sheetUrl: "https://script.google.com/macros/s/AKfycbzhb9lySmYNwSCUY_KLqI1rSE6mQy9SiPBoE3x50yqFxmF7fP8Df3hCEC6NAhrEDqIA/exec",
+    // Номер счетчика Яндекс Метрики (оставьте пустым, если не подключена)
+    metrikaId: null,
+  };
+
+  // Цели для аналитики (Метрика, еженедельные отчёты)
+  function trackGoal(name) {
+    if (CONFIG.metrikaId && typeof window.ym === "function") {
+      window.ym(CONFIG.metrikaId, "reachGoal", name);
+    }
+  }
+  document.querySelectorAll("[data-goal]").forEach((el) => {
+    el.addEventListener("click", () => trackGoal(el.dataset.goal));
+  });
+
+  // Появление блоков
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
+  document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+
+  // Шапка и parallax
+  const header = document.getElementById("top");
+  const parallaxEls = document.querySelectorAll("[data-speed]");
+  let ticking = false;
+
+  function onScroll() {
+    header.classList.toggle("scrolled", window.scrollY > 40);
+    const vh = window.innerHeight;
+    parallaxEls.forEach((el) => {
+      const speed = parseFloat(el.dataset.speed) || 0;
+      const rect = el.getBoundingClientRect();
+      if (rect.bottom < 0 || rect.top > vh) return;
+      const offset = (rect.top + rect.height / 2 - vh / 2) * speed;
+      el.style.transform = `translate3d(0, ${offset.toFixed(1)}px, 0)`;
+    });
+    ticking = false;
+  }
+  window.addEventListener("scroll", () => {
+    if (!ticking) { requestAnimationFrame(onScroll); ticking = true; }
+  }, { passive: true });
+  onScroll();
+
+  // Форма заявки
+  const form = document.getElementById("leadForm");
+  const nameInput = document.getElementById("name");
+  const phoneInput = document.getElementById("phone");
+  const topicSelect = document.getElementById("topic");
+  const commentInput = document.getElementById("comment");
+  const consent = document.getElementById("consent");
+  const consentError = document.getElementById("consentError");
+
+  phoneInput.addEventListener("input", () => {
+    let d = phoneInput.value.replace(/\D/g, "");
+    if (d.startsWith("8")) d = "7" + d.slice(1);
+    if (!d.startsWith("7")) d = "7" + d;
+    d = d.slice(0, 11);
+    let out = "+7";
+    if (d.length > 1) out += " (" + d.slice(1, 4);
+    if (d.length >= 4) out += ")";
+    if (d.length > 4) out += " " + d.slice(4, 7);
+    if (d.length > 7) out += "-" + d.slice(7, 9);
+    if (d.length > 9) out += "-" + d.slice(9, 11);
+    phoneInput.value = out;
+  });
+
+  function validate() {
+    const nameOk = nameInput.value.trim().length >= 2;
+    const phoneOk = phoneInput.value.replace(/\D/g, "").length === 11;
+    const topicOk = topicSelect.value !== "";
+    const consentOk = consent.checked;
+    document.getElementById("fName").classList.toggle("error", !nameOk);
+    document.getElementById("fPhone").classList.toggle("error", !phoneOk);
+    document.getElementById("fTopic").classList.toggle("error", !topicOk);
+    consentError.style.display = consentOk ? "none" : "block";
+    return nameOk && phoneOk && topicOk && consentOk;
+  }
+
+  [nameInput, phoneInput, topicSelect].forEach((el) => el.addEventListener("input", validate));
+  consent.addEventListener("change", validate);
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    trackGoal("submit_lead");
+    if (!validate()) return;
+
+    if (CONFIG.sheetUrl.startsWith("https://script.google.com/")) {
+      fetch(CONFIG.sheetUrl, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify({
+          project: "Земля и Право — разбор",
+          name: nameInput.value.trim(),
+          contact: phoneInput.value,
+          comment: `${topicSelect.value}. ${commentInput.value.trim()}`.trim(),
+        }),
+      }).catch(() => {});
+    }
+
+    document.getElementById("formCard").classList.add("sent");
+  });
+</script>
+</body>
+</html>
